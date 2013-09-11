@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-
+	
 	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
@@ -63,18 +63,18 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	<script type="text/javascript" src="web/js/lib/angular-1.0.8/angular.js"></script>
 	<script type="text/javascript" src="web/js/test.js"></script>
-	<script>
-	pepe();
-	</script>
+
+
 </head>
 <body>
 
-<div id="container">
+<div id="container" ng-app="myApp">
 	<h1>Welcome to CodeIgniter!</h1>
 
-	<div id="body" >
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+	<div id="body" ng-view>
+		<p>The page you are looking at is being generated dynamically by CodeIgniter {{name}}.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>
 		<code>application/views/welcome_message.php</code>
