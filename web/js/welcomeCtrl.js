@@ -1,10 +1,14 @@
-
-
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('WelcomeCtrl', function($scope){
-	$scope.name = 'bolooooooduuooo11';
-});
+
+
+myApp.controller('WelcomeCtrl', ['$scope','$davidServices',function(contexto, $davidServices){
+	contexto.name = 'bolooooooduuooo11';
+	$davidServices.alerta('hola');
+	//var ds2 = angular.injector(['myApp', 'ng']).get('$davidServices2').alerta('sdfsaf');
+
+}]);
+//.inject = ['$scope', '$davidServices'];
 
 myApp.controller('BusquedaLibrosCtrl', function($scope,$routeParams){
 	$scope.name = 'bolooooooduuooo11';
@@ -19,6 +23,28 @@ myApp.config(function($routeProvider){
 	.when('/busquedaLibros/:idLibro',{controller:'BusquedaLibrosCtrl',templateUrl: 'web/templates/busquedaLibros/item.html'})
 	.otherwise({redirectTo:'/'});
 });
+
+ myApp.factory('$davidServices', function($window) {
+    // This is a factory function, and is responsible for 
+    // creating the 'greet' service.
+    return {
+      alerta: function(text) {
+        $window.console.log(text);
+        $window.pepe = 1;
+      }
+    };
+  });
+
+  myApp.factory('$davidServices2', function($window) {
+    // This is a factory function, and is responsible for 
+    // creating the 'greet' service.
+    return {
+      alerta: function(text) {
+        $window.alert(text);
+      }
+    };
+  });
+
 
 // var myApp = {
 //   controller: {},
