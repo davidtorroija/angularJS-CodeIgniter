@@ -39,6 +39,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
+          '../application/views/<%= yeoman.app %>/{,*/}*.html',
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
@@ -111,30 +112,30 @@ module.exports = function (grunt) {
         '<%= yeoman.app %>/scripts/{,*/}*.js'
       ]
     },
-    coffee: {
-      options: {
-        sourceMap: true,
-        sourceRoot: ''
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/scripts',
-          ext: '.js'
-        }]
-      },
-      test: {
-        files: [{
-          expand: true,
-          cwd: 'test/spec',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/spec',
-          ext: '.js'
-        }]
-      }
-    },
+    // coffee: {
+    //   options: {
+    //     sourceMap: true,
+    //     sourceRoot: ''
+    //   },
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/scripts',
+    //       src: '{,*/}*.coffee',
+    //       dest: '.tmp/scripts',
+    //       ext: '.js'
+    //     }]
+    //   },
+    //   test: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'test/spec',
+    //       src: '{,*/}*.coffee',
+    //       dest: '.tmp/spec',
+    //       ext: '.js'
+    //     }]
+    //   }
+    // },
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/styles',
@@ -173,73 +174,74 @@ module.exports = function (grunt) {
         }
       }
     },
-    useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
-      options: {
-        dest: '<%= yeoman.dist %>'
-      }
-    },
-    usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      options: {
-        dirs: ['<%= yeoman.dist %>']
-      }
-    },
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    cssmin: {
-      // By default, your `index.html` <!-- Usemin Block --> will take care of
-      // minification. This option is pre-configured if you do not wish to use
-      // Usemin blocks.
-      // dist: {
-      //   files: {
-      //     '<%= yeoman.dist %>/styles/main.css': [
-      //       '.tmp/styles/{,*/}*.css',
-      //       '<%= yeoman.app %>/styles/{,*/}*.css'
-      //     ]
-      //   }
-      // }
-    },
-    htmlmin: {
-      dist: {
-        options: {
-          /*removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
-          //collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true*/
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['*.html', 'views/*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
+    // useminPrepare: {
+    //   html: '<%= yeoman.app %>/index.html',
+    //   options: {
+    //     dest: '<%= yeoman.dist %>'
+    //   }
+    // },
+    // usemin: {
+    //   html: ['../application/views/{,*/}*.html',
+    //          '<%= yeoman.dist %>/{,*/}*.html'],
+    //   css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+    //   options: {
+    //     dirs: ['<%= yeoman.dist %>']
+    //   }
+    // },
+    // imagemin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/images',
+    //       src: '{,*/}*.{png,jpg,jpeg}',
+    //       dest: '<%= yeoman.dist %>/images'
+    //     }]
+    //   }
+    // },
+    // svgmin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/images',
+    //       src: '{,*/}*.svg',
+    //       dest: '<%= yeoman.dist %>/images'
+    //     }]
+    //   }
+    // },
+    // cssmin: {
+    //   // By default, your `index.html` <!-- Usemin Block --> will take care of
+    //   // minification. This option is pre-configured if you do not wish to use
+    //   // Usemin blocks.
+    //   // dist: {
+    //   //   files: {
+    //   //     '<%= yeoman.dist %>/styles/main.css': [
+    //   //       '.tmp/styles/{,*/}*.css',
+    //   //       '<%= yeoman.app %>/styles/{,*/}*.css'
+    //   //     ]
+    //   //   }
+    //   // }
+    // },
+    // htmlmin: {
+    //   dist: {
+    //     options: {
+    //       /*removeCommentsFromCDATA: true,
+    //       // https://github.com/yeoman/grunt-usemin/issues/44
+    //       //collapseWhitespace: true,
+    //       collapseBooleanAttributes: true,
+    //       removeAttributeQuotes: true,
+    //       removeRedundantAttributes: true,
+    //       useShortDoctype: true,
+    //       removeEmptyAttributes: true,
+    //       removeOptionalTags: true*/
+    //     },
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>',
+    //       src: ['*.html', 'views/*.html'],
+    //       dest: '<%= yeoman.dist %>'
+    //     }]
+    //   }
+    // },
     // Put files not handled in other tasks here
     copy: {
       dist: {
@@ -273,22 +275,22 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
-        'coffee:dist',
+        //'coffee:dist',
         'compass:server',
         'copy:styles'
       ],
       test: [
-        'coffee',
+        //'coffee',
         'compass',
         'copy:styles'
       ],
       dist: [
-        'coffee',
+        //'coffee',
         'compass:dist',
         'copy:styles',
-        'imagemin',
-        'svgmin',
-        'htmlmin'
+        //'imagemin',
+        //'svgmin',
+        //'htmlmin'
       ]
     },
     karma: {
@@ -347,17 +349,17 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'useminPrepare',
+    //'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
+    //'concat',
     'copy:dist',
     'cdnify',
     'ngmin',
-    'cssmin',
+    //'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    //'usemin'
   ]);
 
   grunt.registerTask('default', [
