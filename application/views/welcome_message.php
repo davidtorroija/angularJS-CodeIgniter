@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-	
+
 	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
@@ -62,79 +62,15 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
-	.Monica {color:red;}
 	</style>
-	<script type="text/javascript" src="web/js/lib/angular-1.0.8/angular.js"></script>
-	<script type="text/javascript" src="web/js/welcomeCtrl.js"></script> 
-
-	 <script type="text/javascript">
-	// 	var app = angular.module('myApp',[]);
-	// function miControladorGoloso($scope,$http){
-	// 	'use strict'
-	// 	$scope.pepe = 'hola';
-	// 	$scope.isVisible = false;
-	// 	$scope.personas = 
-	// 	[
-	// 		{nombre:'Monica',edad:'11'},
-	// 		{nombre:'Gabi Paraiso Gol',edad:'21'},
-	// 	];
-	// 	$scope.funcionClick = function(str){
-	// 		alert(str);
-	// 		$scope.isVisible = true;
-	// 	}
-	// 	$scope.llenarTexto = function(persona){
-	// 		$scope.loquesea = persona.nombre;
-	// 	}	
-	// 	$scope.isLoading = true;
-	// 	setTimeout(function(){
-	// 		$scope.$watch('isLoading', function(){
-	// 			$scope.isLoading = false;
-	// 		});
-	// 		console.log('loadinggg');
-	// 		$scope.isLoading = false;
-	// 		$scope.$digest();
-			
-	// 	},3000);
-		
-	// }
-	//(function(){
-		//'use strict'
-		a = 1
-		function myObjetoLoco(objectSpecifier){
-		    objectSpecifier = objectSpecifier || {};
-		    
-		    var defaultConfig = {parametro1: 'soyElParam1'}
-		    
-		}
-
-	//})()
-	 </script>
-
 </head>
 <body>
 
-<div id="container" ng-app="myApp">
+<div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
-	
-<!-- ng-controller="miControladorGoloso" -->
-	<div ng-view id="body" >
-		<div ng-show="isLoading">Loading.......</div>
-		{{pepe}}
-		<input ng-click="funcionClick('algo')" ng-model="variableInput">
-	<button ng-click="agregarElemento()">agregar elemento</button>
 
-		<div ng-show="isVisible"> un textoooooooo</div>
-		<select ng-model="selected" 
-		ng-options="persona as persona.edad for persona in personas">
-	</select>
-		{{selected.nombre}}
-		<ul>
-			<li ng-repeat="persona in personas">
-				<span ng-click="llenarTexto(persona)" ng-class="{Monica: persona.edad > 20}">{{persona.nombre}}</span>
-			</li>
-		</ul>
-		{{loquesea}}
-		<p>The page you are looking at is being generated dynamically by CodeIgniter {{name}}.</p>
+	<div id="body">
+		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>
 		<code>application/views/welcome_message.php</code>
@@ -146,8 +82,6 @@
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
-
-	<a href="web/js/lib/jasmine/SpecRunner.html">correr los tests</a>
 </div>
 
 </body>
