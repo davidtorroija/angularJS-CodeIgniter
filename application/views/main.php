@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="web/dist/styles/a281a2e5.main.css">
+        <link rel="stylesheet" href="web/dist/styles/main.css">
         <!-- endbuild -->
 </head>
   <body ng-app="mainApp">
