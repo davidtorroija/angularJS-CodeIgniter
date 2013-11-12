@@ -174,53 +174,53 @@ module.exports = function (grunt) {
         }
       }
     },
-    // useminPrepare: {
-    //   html: '<%= yeoman.app %>/index.html',
-    //   options: {
-    //     dest: '<%= yeoman.dist %>'
-    //   }
-    // },
-    // usemin: {
-    //   html: ['../application/views/{,*/}*.html',
-    //          '<%= yeoman.dist %>/{,*/}*.html'],
-    //   css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-    //   options: {
-    //     dirs: ['<%= yeoman.dist %>']
-    //   }
-    // },
-    // imagemin: {
-    //   dist: {
-    //     files: [{
-    //       expand: true,
-    //       cwd: '<%= yeoman.app %>/images',
-    //       src: '{,*/}*.{png,jpg,jpeg}',
-    //       dest: '<%= yeoman.dist %>/images'
-    //     }]
-    //   }
-    // },
-    // svgmin: {
-    //   dist: {
-    //     files: [{
-    //       expand: true,
-    //       cwd: '<%= yeoman.app %>/images',
-    //       src: '{,*/}*.svg',
-    //       dest: '<%= yeoman.dist %>/images'
-    //     }]
-    //   }
-    // },
-    // cssmin: {
-    //   // By default, your `index.html` <!-- Usemin Block --> will take care of
-    //   // minification. This option is pre-configured if you do not wish to use
-    //   // Usemin blocks.
-    //   // dist: {
-    //   //   files: {
-    //   //     '<%= yeoman.dist %>/styles/main.css': [
-    //   //       '.tmp/styles/{,*/}*.css',
-    //   //       '<%= yeoman.app %>/styles/{,*/}*.css'
-    //   //     ]
-    //   //   }
-    //   // }
-    // },
+    useminPrepare: {
+      html: '<%= yeoman.app %>/index.html',
+      options: {
+        dest: '<%= yeoman.dist %>'
+      }
+    },
+    usemin: {
+      html: ['../application/views/{,*/}*.html',
+             '<%= yeoman.dist %>/{,*/}*.html'],
+      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      options: {
+        dirs: ['<%= yeoman.dist %>']
+      }
+    },
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/images',
+          src: '{,*/}*.{png,jpg,jpeg}',
+          dest: '<%= yeoman.dist %>/images'
+        }]
+      }
+    },
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/images',
+          src: '{,*/}*.svg',
+          dest: '<%= yeoman.dist %>/images'
+        }]
+      }
+    },
+    cssmin: {
+      // By default, your `index.html` <!-- Usemin Block --> will take care of
+      // minification. This option is pre-configured if you do not wish to use
+      // Usemin blocks.
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= yeoman.app %>/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
     // htmlmin: {
     //   dist: {
     //     options: {
@@ -349,17 +349,17 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    //'useminPrepare',
+    'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    //'concat',
+    'concat',
     'copy:dist',
     'cdnify',
     'ngmin',
-    //'cssmin',
+    'cssmin',
     'uglify',
     'rev',
-    //'usemin'
+    'usemin'
   ]);
 
   grunt.registerTask('default', [
